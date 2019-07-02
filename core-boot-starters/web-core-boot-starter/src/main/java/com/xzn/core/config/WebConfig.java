@@ -3,20 +3,26 @@ package com.xzn.core.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.xzn.core.interceptor.XInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class WebConfig extends WebMvcConfigurationSupport{
+public class WebConfig implements WebMvcConfigurer{
+
+    @Autowired
+    private XInterceptor xInterceptor;
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -37,12 +43,11 @@ public class WebConfig extends WebMvcConfigurationSupport{
         configurer.setUseRegisteredSuffixPatternMatch(true);
     }
 
-    /**
-     * 设置匹配*.do后缀请求
-     *
-     * @param dispatcherServlet
-     * @return
-     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(xInterceptor).addPathPatterns("/login");
+    }
+
     @Bean
     public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
         ServletRegistrationBean servletServletRegistrationBean = new ServletRegistrationBean(dispatcherServlet);

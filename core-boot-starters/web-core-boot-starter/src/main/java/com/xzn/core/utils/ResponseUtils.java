@@ -1,6 +1,6 @@
 package com.xzn.core.utils;
 
-import com.xzn.core.execptions.BusinessException;
+import com.xzn.common.execptions.BusinessException;
 import com.xzn.core.vo.Result;
 
 /**
