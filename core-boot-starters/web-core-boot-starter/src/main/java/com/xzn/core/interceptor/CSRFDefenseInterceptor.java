@@ -1,7 +1,7 @@
 package com.xzn.core.interceptor;
 
 import com.xzn.common.ensure.Ensure;
-import com.xzn.core.utils.StringUtils;
+import com.xzn.common.utils.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;

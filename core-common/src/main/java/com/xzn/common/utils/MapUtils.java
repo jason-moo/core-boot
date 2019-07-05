@@ -1,4 +1,4 @@
-package com.xzn.core.utils;
+package com.xzn.common.utils;
 
 import java.lang.reflect.Array;
 import java.util.HashMap;

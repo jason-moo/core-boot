@@ -1,4 +1,4 @@
-package com.xzn.core.utils;
+package com.xzn.common.utils;
 
 /**
  * Created by nt on 2016-07-26.

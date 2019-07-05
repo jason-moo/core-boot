@@ -1,7 +1,7 @@
 package com.xzn.core.interceptor.form;
 
 import com.xzn.core.context.XContext;
-import com.xzn.core.utils.StringUtils;
+import com.xzn.common.utils.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

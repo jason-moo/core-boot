@@ -1,4 +1,4 @@
-package com.xzn.core.utils;
+package com.xzn.common.utils;
 
 import com.xzn.common.execptions.BusinessException;
 import com.xzn.core.vo.Result;

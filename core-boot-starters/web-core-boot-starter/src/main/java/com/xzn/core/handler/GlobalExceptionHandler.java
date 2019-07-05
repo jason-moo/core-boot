@@ -2,7 +2,7 @@ package com.xzn.core.handler;
 
 import com.xzn.common.execptions.BusinessException;
 import com.xzn.common.execptions.ExceptionFactory;
-import com.xzn.core.utils.ResponseUtils;
+import com.xzn.common.utils.ResponseUtils;
 import com.xzn.core.vo.BaseResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

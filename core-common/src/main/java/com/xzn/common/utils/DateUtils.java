@@ -1,5 +1,9 @@
-package com.xzn.core.utils;
+package com.xzn.common.utils;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Minutes;
+import org.joda.time.Seconds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -308,75 +312,75 @@ public class DateUtils {
         return formatter.format(num);
     }
 
-//    /**
-//     * 获取两个时间的分钟差
-//     * <p>
-//     * Get minutes between.
-//     *
-//     * @param beginDate the begin date
-//     * @param endDate   the end date
-//     * @return the int
-//     */
-//    public static int getMinutesBetween(Date beginDate, Date endDate) {
-//        if (null == beginDate || null == endDate) {
-//            return 0;
-//        }
-//        return Minutes.minutesBetween(new DateTime(beginDate), new DateTime(endDate)).getMinutes();
-//    }
-//
-//    /**
-//     * 获取两个时间的秒数差
-//     * <p>
-//     * Get seconds between.
-//     *
-//     * @param beginDate
-//     * @param endDate
-//     * @return the int
-//     */
-//    public static int getSecondsBetween(Date beginDate, Date endDate) {
-//        if (null == beginDate || null == endDate) {
-//            return 0;
-//        }
-//
-//        return Seconds.secondsBetween(new DateTime(beginDate), new DateTime(endDate)).getSeconds();
-//    }
-//
-//    /**
-//     * 获取两个时间的毫秒差
-//     * <p>
-//     * Get seconds between.
-//     *
-//     * @param beginDate
-//     * @param endDate
-//     * @return the int
-//     */
-//    public static long getMillSecondsBetween(DateTime beginDate, DateTime endDate) {
-//        if (null == beginDate || null == endDate) {
-//            return 0;
-//        }
-//
-//        return beginDate.getMillis() - endDate.getMillis();
-//    }
-//
-//    /**
-//     * 比较2个日期是否是同一天
-//     */
-//    public static boolean isSameDay(Date sourceDate, Date targetDate) {
-//        return new DateTime(sourceDate).withTimeAtStartOfDay().isEqual(new DateTime(targetDate).withTimeAtStartOfDay());
-//    }
-//
-//    /**
-//     * 判断指定日期是否是当天
-//     */
-//    public static boolean isCurrentDay(Date date) {
-//        return Days.daysBetween(DateTime.now(), new DateTime(date)).getDays() == 0;
-//    }
-//
-//    /**
-//     * @param date 日期
-//     * @return
-//     */
-//    public static long getMillis(Date date) {
-//        return new DateTime(date).getMillis();
-//    }
+    /**
+     * 获取两个时间的分钟差
+     * <p>
+     * Get minutes between.
+     *
+     * @param beginDate the begin date
+     * @param endDate   the end date
+     * @return the int
+     */
+    public static int getMinutesBetween(Date beginDate, Date endDate) {
+        if (null == beginDate || null == endDate) {
+            return 0;
+        }
+        return Minutes.minutesBetween(new DateTime(beginDate), new DateTime(endDate)).getMinutes();
+    }
+
+    /**
+     * 获取两个时间的秒数差
+     * <p>
+     * Get seconds between.
+     *
+     * @param beginDate
+     * @param endDate
+     * @return the int
+     */
+    public static int getSecondsBetween(Date beginDate, Date endDate) {
+        if (null == beginDate || null == endDate) {
+            return 0;
+        }
+
+        return Seconds.secondsBetween(new DateTime(beginDate), new DateTime(endDate)).getSeconds();
+    }
+
+    /**
+     * 获取两个时间的毫秒差
+     * <p>
+     * Get seconds between.
+     *
+     * @param beginDate
+     * @param endDate
+     * @return the int
+     */
+    public static long getMillSecondsBetween(DateTime beginDate, DateTime endDate) {
+        if (null == beginDate || null == endDate) {
+            return 0;
+        }
+
+        return beginDate.getMillis() - endDate.getMillis();
+    }
+
+    /**
+     * 比较2个日期是否是同一天
+     */
+    public static boolean isSameDay(Date sourceDate, Date targetDate) {
+        return new DateTime(sourceDate).withTimeAtStartOfDay().isEqual(new DateTime(targetDate).withTimeAtStartOfDay());
+    }
+
+    /**
+     * 判断指定日期是否是当天
+     */
+    public static boolean isCurrentDay(Date date) {
+        return Days.daysBetween(DateTime.now(), new DateTime(date)).getDays() == 0;
+    }
+
+    /**
+     * @param date 日期
+     * @return
+     */
+    public static long getMillis(Date date) {
+        return new DateTime(date).getMillis();
+    }
 }

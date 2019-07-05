@@ -30,6 +30,12 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
+        <!-- joda Time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
 import com.xzn.common.execptions.ExceptionFactory;
-import com.xzn.core.utils.MapUtils;
+import com.xzn.common.utils.MapUtils;
 import com.xzn.session.XSession;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;

@@ -1,4 +1,4 @@
-package com.xzn.core.utils;
+package com.xzn.common.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
