@@ -1,4 +1,6 @@
-package com.xzn.common.utils;
+package com.xzn.core.utils;
+
+import com.xzn.common.utils.StringUtils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

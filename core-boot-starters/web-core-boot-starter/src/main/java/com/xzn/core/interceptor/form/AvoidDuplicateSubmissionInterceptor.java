@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.xzn.common.execptions.BusinessException;
 import com.xzn.common.execptions.ExceptionFactory;
 import com.xzn.core.interceptor.XInterceptor;
-import com.xzn.common.utils.ResponseUtils;
+import com.xzn.core.utils.ResponseUtils;
 import com.xzn.common.utils.StringUtils;
 import com.xzn.core.vo.Result;
 import org.slf4j.Logger;

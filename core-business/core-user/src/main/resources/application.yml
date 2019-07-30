@@ -1,0 +1,15 @@
+server:
+  port: 8672
+  discovery-port: 8671
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8671/eureka/
+spring:
+  application:
+    name: user-service
