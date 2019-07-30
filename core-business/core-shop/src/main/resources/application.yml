@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: shop-service
 server:
   port: 8673
   discovery-port: 8671
@@ -10,6 +13,3 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8671/eureka/
-spring:
-  application:
-    name: shop-service

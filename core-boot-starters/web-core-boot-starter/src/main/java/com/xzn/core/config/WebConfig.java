@@ -21,8 +21,8 @@ import java.util.List;
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
 
-    @Autowired
-    private XInterceptor xInterceptor;
+//    @Autowired
+//    private XInterceptor xInterceptor;
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -38,21 +38,21 @@ public class WebConfig implements WebMvcConfigurer{
         converters.add(fastConverter);
     }
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        configurer.setUseRegisteredSuffixPatternMatch(true);
-    }
+//    @Override
+//    public void configurePathMatch(PathMatchConfigurer configurer) {
+//        configurer.setUseSuffixPatternMatch(false).setUseTrailingSlashMatch(true);
+//    }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(xInterceptor).addPathPatterns("/login");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(xInterceptor).addPathPatterns("/login");
+//    }
 
-    @Bean
-    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
-        ServletRegistrationBean servletServletRegistrationBean = new ServletRegistrationBean(dispatcherServlet);
-        servletServletRegistrationBean.addUrlMappings("*.do");
-        return servletServletRegistrationBean;
-    }
+//    @Bean
+//    public ServletRegistrationBean servletRegistrationBean(DispatcherServlet dispatcherServlet) {
+//        ServletRegistrationBean servletServletRegistrationBean = new ServletRegistrationBean(dispatcherServlet);
+//        servletServletRegistrationBean.addUrlMappings("*.do");
+//        return servletServletRegistrationBean;
+//    }
 
 }
