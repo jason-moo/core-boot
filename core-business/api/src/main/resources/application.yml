@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: api
+  cloud:
+    gateway:
+      routes:
+      - id: fsh-house
+        uri: lb://USER-SERVICE
+        predicates:
+        - Path=/api/user/**
+        filters:
+        - StripPrefix=2
+server:
+  port: 8888
+  discovery-port: 8671
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8671/eureka/

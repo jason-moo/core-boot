@@ -12,6 +12,7 @@
     <modules>
         <module>core-boot-starters</module>
         <module>core-common</module>
+        <module>core-business</module>
     </modules>
 
     <name>core-boot</name>
