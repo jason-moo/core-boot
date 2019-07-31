@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
 
     <name>core-boot-starters</name>
+
     <modules>
         <module>web-core-boot-starter</module>
         <module>test-core-boot-starter</module>

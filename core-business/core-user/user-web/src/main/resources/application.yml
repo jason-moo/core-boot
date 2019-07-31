@@ -1,6 +1,17 @@
 spring:
   application:
     name: user-service
+  redis:
+    host: 192.168.0.188
+    port: 6379
+    timeout: 3000
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
 server:
   port: 8672
   discovery-port: 8671
