@@ -1,7 +1,7 @@
 package com.xzn.user.api.impl;
 
+import com.xzn.redis.utils.RedisUtils;
 import com.xzn.user.api.UserService;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +14,7 @@ public class UserController implements UserService {
 
     @Override
     public String login(@RequestParam("userName") String userName){
-
+        RedisUtils.put("sdadsad","dadadsa");
         System.out.println(userName + "登陆成功");
 
         return "OK";
