@@ -44,9 +44,9 @@ public class XInterceptor implements HandlerInterceptor {
         if (isIgnored(request.getRequestURI())) {
             return true;
         }
-        if (isAccessDenied(request, handler)) {
-            return false;
-        }
+//        if (isAccessDenied(request, handler)) {
+//            return false;
+//        }
 
         XContext xContext = XContext.getCurrentContext();
 

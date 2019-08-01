@@ -17,7 +17,7 @@ public class RedisUtils {
 
     private static Logger logger = LoggerFactory.getLogger(RedisUtils.class);
 
-    private static RedisTemplate template = ApplicationContextHelper.getContext().getBean(RedisTemplate.class);
+    private static RedisTemplate template = ApplicationContextHelper.getContext().getBean("redisTemplate",RedisTemplate.class);
 
 
     /**

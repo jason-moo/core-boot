@@ -22,7 +22,7 @@ public interface ShopService {
     @RequestMapping(value = "/buyGood",method = RequestMethod.GET)
     String buy(@RequestParam("goodName") String goodName);
 
-    @RequestMapping(value = "/buyGood",method = RequestMethod.GET)
+    @RequestMapping(value = "/buySomeGoods",method = RequestMethod.GET)
     String buySomeGoods(@RequestParam Map<String,Object> map);
 
     @RequestMapping(value = "/buyGood",method = RequestMethod.POST)

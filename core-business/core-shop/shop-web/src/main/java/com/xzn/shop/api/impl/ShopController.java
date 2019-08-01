@@ -37,7 +37,6 @@ public class ShopController implements ShopService {
         return "OK";
     }
 
-
     @Override
     public String buySomeGoods(Map<String, Object> map) {
         return null;

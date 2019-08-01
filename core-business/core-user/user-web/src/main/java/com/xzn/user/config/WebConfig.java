@@ -3,9 +3,14 @@ package com.xzn.user.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.xzn.core.interceptor.AuthenticationInterceptor;
+import com.xzn.core.interceptor.XInterceptor;
+import com.xzn.core.interceptor.form.AvoidDuplicateSubmissionInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
@@ -26,6 +31,22 @@ public class WebConfig implements WebMvcConfigurer{
         fastConverter.setSupportedMediaTypes(fastMediaTypes);
         fastConverter.setFastJsonConfig(fastJsonConfig);
         converters.add(fastConverter);
+    }
+
+
+    @Bean
+    public XInterceptor xInterceptor(){
+        XInterceptor xInterceptor = new XInterceptor();
+        List<XInterceptor> xInterceptors = new ArrayList<>();
+        xInterceptors.add(new AvoidDuplicateSubmissionInterceptor());
+        xInterceptors.add(new AuthenticationInterceptor());
+        xInterceptor.setXInterceptorList(xInterceptors);
+        return xInterceptor;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(xInterceptor()).addPathPatterns("/**");
     }
 
 //    @Override
