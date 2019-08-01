@@ -4,10 +4,16 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: fsh-house
+      - id: user
         uri: lb://USER-SERVICE
         predicates:
         - Path=/api/user/**
+        filters:
+        - StripPrefix=2
+      - id: shop
+        uri: lb://SHOP-SERVICE
+        predicates:
+        - Path=/api/shop/**
         filters:
         - StripPrefix=2
 server:
