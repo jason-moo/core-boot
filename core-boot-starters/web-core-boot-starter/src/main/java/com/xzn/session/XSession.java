@@ -5,13 +5,10 @@ import java.util.Map;
 
 /**
  * 自定义的session会话
- * Created by liuliling on 17/6/13.
  */
 public class XSession {
 
-    private String sessionId;
     private String userId;
-    private String server;
 
     private Map<String, Object> attributes = new HashMap<>();
 
@@ -23,28 +20,12 @@ public class XSession {
         return this.attributes.get(key);
     }
 
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
-
     public String getUserId() {
         return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getServer() {
-        return server;
-    }
-
-    public void setServer(String server) {
-        this.server = server;
     }
 
     public Map<String, Object> getAttributes() {

@@ -1,10 +1,13 @@
 package com.xzn.shop.api.impl;
 
 import com.xzn.shop.api.ShopService;
+import com.xzn.shop.dto.GoodsDTO;
 import com.xzn.user.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * @Author xuezn
@@ -32,5 +35,16 @@ public class ShopController implements ShopService {
         System.out.println(goodName + "购买成功");
 
         return "OK";
+    }
+
+
+    @Override
+    public String buySomeGoods(Map<String, Object> map) {
+        return null;
+    }
+
+    @Override
+    public String buyGoods(GoodsDTO goodsDTO) {
+        return null;
     }
 }

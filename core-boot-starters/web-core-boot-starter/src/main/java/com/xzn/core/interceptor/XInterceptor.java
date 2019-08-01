@@ -29,7 +29,7 @@ public class XInterceptor implements HandlerInterceptor {
     public static final String LOG_PATTERN = "#httpRequestLog#TIME=%d,RealIp=%s,HashCode=%s,SOURCE=%s,URL=%s,PARAMETERS=%s,RETURN=%s";
 
     /**
-     * 来源，例如openApi，wemall，ecoupon等
+     * 来源
      */
     private String source;
 
