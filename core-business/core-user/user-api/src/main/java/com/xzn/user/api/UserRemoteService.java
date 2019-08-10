@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date 2019年07月31日 14:00:54
  */
 @FeignClient(value = "USER-SERVICE")
-public interface UserService {
+public interface UserRemoteService {
 
     @RequestMapping("/user/login")
     String login(@RequestParam("userName") String userName);

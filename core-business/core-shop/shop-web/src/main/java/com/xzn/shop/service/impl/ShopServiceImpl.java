@@ -1,7 +1,7 @@
 package com.xzn.shop.service.impl;
 
 import com.xzn.shop.service.ShopService;
-import com.xzn.user.api.UserService;
+import com.xzn.user.api.UserRemoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 public class ShopServiceImpl implements ShopService {
 
     @Autowired
-    private UserService userService;
+    private UserRemoteService userRemoteService;
 
     @Override
     public void sayHello() {
-        System.out.println(userService.login("aaaa"));
+        System.out.println(userRemoteService.login("aaaa"));
         System.out.println("Hello");
     }
 

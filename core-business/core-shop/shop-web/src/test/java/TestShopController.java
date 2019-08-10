@@ -1,6 +1,6 @@
 import com.xzn.ShopApplication;
 import com.xzn.shop.service.ShopService;
-import com.xzn.user.api.UserService;
+import com.xzn.user.api.UserRemoteService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -17,15 +17,15 @@ public class TestShopController {
     private ShopService shopService;
 
     @SpyBean
-    private UserService userService;
+    private UserRemoteService userRemoteService;
 
     @Test
     public void testSayHello() {
 
-//        Mockito.doReturn("bbbbb").when(userService.login("aaaa"));
-//        Mockito.when(userService.login("aaaa")).thenReturn("bbbbb");
-        Mockito.doReturn("bbbbb").when(userService.login("aaaa"));
-        userService.login("aaaa");
+//        Mockito.doReturn("bbbbb").when(userRemoteService.login("aaaa"));
+//        Mockito.when(userRemoteService.login("aaaa")).thenReturn("bbbbb");
+        Mockito.doReturn("bbbbb").when(userRemoteService.login("aaaa"));
+        userRemoteService.login("aaaa");
     }
 
 

@@ -2,7 +2,9 @@ package com.xzn.user.api.impl;
 
 import com.xzn.redis.utils.RedisUtils;
 import com.xzn.shop.api.ShopRemoteService;
-import com.xzn.user.api.UserService;
+import com.xzn.user.api.UserRemoteService;
+import com.xzn.user.entity.User;
+import com.xzn.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2019年07月30日 14:58:12
  */
 @RestController
-public class UserController implements UserService {
+public class UserRemoteController implements UserRemoteService {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -21,9 +23,13 @@ public class UserController implements UserService {
     @Autowired
     private ShopRemoteService shopRemoteService;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public String login(@RequestParam("userName") String userName){
-        RedisUtils.put("sdadsad","dadadsa");
+        User user = userService.selectById(1);
+        RedisUtils.put("sdadsad",user);
         System.out.println(userName + "登陆成功");
         return "OK";
     }
