@@ -1,6 +1,6 @@
 package com.xzn.shop.api.impl;
 
-import com.xzn.shop.api.ShopService;
+import com.xzn.shop.api.ShopRemoteService;
 import com.xzn.shop.dto.GoodsDTO;
 import com.xzn.user.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @Date 2019年07月30日 15:06:00
  */
 @RestController
-public class ShopController implements ShopService {
+public class ShopRemoteController implements ShopRemoteService {
 
     @Autowired
     private UserService userService;

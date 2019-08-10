@@ -14,7 +14,7 @@ import java.util.Map;
  * @Date 2019年07月31日 13:52:26
  */
 @FeignClient(value = "SHOP-SERVICE")
-public interface ShopService {
+public interface ShopRemoteService {
 
     @RequestMapping(value = "/buy" ,method = RequestMethod.GET)
     String buy(@RequestParam("goodName") String goodName, @RequestParam("userName") String userName);

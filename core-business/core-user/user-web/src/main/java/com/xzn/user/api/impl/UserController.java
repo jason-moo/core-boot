@@ -1,7 +1,7 @@
 package com.xzn.user.api.impl;
 
 import com.xzn.redis.utils.RedisUtils;
-import com.xzn.shop.api.ShopService;
+import com.xzn.shop.api.ShopRemoteService;
 import com.xzn.user.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -19,7 +19,7 @@ public class UserController implements UserService {
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    private ShopService shopService;
+    private ShopRemoteService shopRemoteService;
 
     @Override
     public String login(@RequestParam("userName") String userName){
