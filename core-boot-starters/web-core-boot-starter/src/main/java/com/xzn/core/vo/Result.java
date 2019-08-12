@@ -3,7 +3,7 @@ package com.xzn.core.vo;
 import lombok.Data;
 
 @Data
-public class Result extends BaseResponse{
+public class Result<T> extends BaseResponse{
 
     public Result() {
 
@@ -14,12 +14,16 @@ public class Result extends BaseResponse{
         super.setDescription(description);
     }
 
-    public Result(String code, String description, Object result) {
+    public Result(String code, String description, T result) {
         super.setCode(code);
         super.setDescription(description);
         this.result = result;
     }
 
-    private Object result;
+    public Result(T result) {
+        this.result = result;
+    }
+
+    private T result;
 
 }

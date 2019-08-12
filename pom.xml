@@ -13,6 +13,7 @@
         <module>core-boot-starters</module>
         <module>core-common</module>
         <module>core-business</module>
+        <module>core-zipkin</module>
     </modules>
 
     <name>core-boot</name>
@@ -139,6 +140,8 @@
                 <artifactId>web-core-boot-starter</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+
+
 
         </dependencies>
 

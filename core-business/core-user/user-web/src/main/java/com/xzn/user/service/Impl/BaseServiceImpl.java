@@ -28,7 +28,7 @@ public class BaseServiceImpl<M extends BaseMapper<T>, T> implements BaseService<
     }
 
     @Override
-    public T selectById(Integer id) {
+    public T selectById(long id) {
         return mapper.selectById(id);
     }
 

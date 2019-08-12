@@ -1,10 +1,8 @@
 package com.xzn.uploader.file;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,15 +17,12 @@ import java.util.*;
  * @date 2017/1/6
  * 文件夹规则  每天创建一个文件夹存放文件   文件名使用uuid
  */
+@Slf4j
 public class FtpUploaderImpl implements FileUploader {
-
-    private static Logger logger = LoggerFactory.getLogger(FtpUploaderImpl.class);
-
     private final String host;
     private final int port;
     private final String user;
     private final String password;
-
     private final String root;
 
 
@@ -45,10 +40,10 @@ public class FtpUploaderImpl implements FileUploader {
             ftpClient.connect(host, port);
             ftpClient.login(user, password);
             if (!FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
-                logger.info("未连接到FTP，用户名或密码错误。");
+                log.info("未连接到FTP，用户名或密码错误。");
                 ftpClient.disconnect();
             } else {
-                logger.info("FTP连接成功。");
+                log.info("FTP连接成功。");
                 // 设置PassiveMode传输
                 ftpClient.enterLocalPassiveMode();
                 // 设置以二进制流的方式传输
@@ -56,7 +51,7 @@ public class FtpUploaderImpl implements FileUploader {
                 ftpClient.setControlEncoding("UTF-8");
             }
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return ftpClient;
     }
@@ -72,7 +67,7 @@ public class FtpUploaderImpl implements FileUploader {
         try {
             ftpClient.disconnect();
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return list;
     }
@@ -87,7 +82,7 @@ public class FtpUploaderImpl implements FileUploader {
         try {
             ftpClient.disconnect();
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return map;
     }
@@ -101,7 +96,7 @@ public class FtpUploaderImpl implements FileUploader {
             ftpClient.changeWorkingDirectory(fileDirectory);
             in = ftpClient.retrieveFileStream(filePath);
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return in;
     }
@@ -113,7 +108,7 @@ public class FtpUploaderImpl implements FileUploader {
         try {
             ftpClient.disconnect();
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return in;
     }
@@ -125,7 +120,7 @@ public class FtpUploaderImpl implements FileUploader {
         try {
             ftpClient.disconnect();
         } catch (IOException e) {
-            logger.error("io exception");
+            log.error("io exception");
         }
         return returnPath;
     }
@@ -140,26 +135,26 @@ public class FtpUploaderImpl implements FileUploader {
             fileDirectory = root + LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
             if (ftpClient.makeDirectory(fileDirectory)) {
                 //存在则false 跳过
-                logger.info("不存在目录,新建{}", fileDirectory);
+                log.info("不存在目录,新建{}", fileDirectory);
             }
             filePath = fileDirectory + "/" + fileName;
             boolean status = ftpClient.storeFile(filePath, in);
             if (!status) {
-                logger.error("上传失败,可能是目录 {} 不存在,请先检查目录", fileDirectory);
+                log.error("上传失败,可能是目录 {} 不存在,请先检查目录", fileDirectory);
             }
             in.close();
-            logger.info("上传 {} 到ftp{} 地址:{}", fileName, status, filePath);
+            log.info("上传 {} 到ftp{} 地址:{}", fileName, status, filePath);
         } catch (FileNotFoundException e) {
-            logger.info("ftp上文件不存在");
+            log.info("ftp上文件不存在");
             filePath = null;
         } catch (IOException e) {
-            logger.info("ftp上文件读取异常");
+            log.info("ftp上文件读取异常");
             filePath = null;
         } finally {
             try {
                 in.close();
             } catch (IOException e) {
-                logger.error("io exception");
+                log.error("io exception");
             }
         }
 

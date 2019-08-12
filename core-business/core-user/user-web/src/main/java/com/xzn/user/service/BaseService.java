@@ -15,7 +15,7 @@ public interface BaseService<T> {
 
     Integer updateById(T t);
 
-    T selectById(Integer id);
+    T selectById(long id);
 
     /**
      * 返回一条
