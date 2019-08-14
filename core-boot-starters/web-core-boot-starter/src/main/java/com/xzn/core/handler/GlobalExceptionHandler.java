@@ -19,7 +19,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import javax.servlet.http.HttpServletResponse;
 
-@ControllerAdvice("com.xzn")
+@ControllerAdvice(basePackages = "com.xzn")
 @ResponseBody
 public class GlobalExceptionHandler {
   private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
