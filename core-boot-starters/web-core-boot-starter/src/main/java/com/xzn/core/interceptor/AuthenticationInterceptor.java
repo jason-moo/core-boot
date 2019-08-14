@@ -27,14 +27,14 @@ public class AuthenticationInterceptor extends XInterceptor {
         Method method = handlerMethod.getMethod();
         // 判断接口是否需要登录
         LoginRequired methodAnnotation = method.getAnnotation(LoginRequired.class);
+        String authHeader = request.getHeader(ACCESS_TOKEN);
         // 有 @LoginRequired 注解，需要认证
-        if (methodAnnotation != null) {
+        if (methodAnnotation != null || !com.xzn.common.utils.StringUtils.isEmpty(authHeader)) {
             // 判断是否存在令牌信息，如果存在，则允许登录
-            String authHeader = request.getHeader(ACCESS_TOKEN);
             if (StringUtils.isEmpty(authHeader)) {
                 throw ExceptionFactory.create("F_WEBKITS_SECURITY_1002");
             } else {
-                //验证JWT的签名，返回CheckResult对象
+//                验证JWT的签名，返回CheckResult对象
                 CheckResult checkResult = JwtUtils.validateJWT(authHeader);
                 if (checkResult.isSuccess()) {
                     XContext.getCurrentContext().getSession().setUserId(checkResult.getClaims().getId());
