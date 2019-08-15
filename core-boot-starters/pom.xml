@@ -20,6 +20,7 @@
         <module>ons-core-boot-starter</module>
         <module>redis-core-boot-starter</module>
         <module>upload-core-boot-starter</module>
+        <module>fegin-core-boot-starter</module>
     </modules>
 
     <dependencies>
