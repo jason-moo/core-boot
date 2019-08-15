@@ -1,5 +1,6 @@
 package com.xzn.fegin;
 
+import com.alibaba.fastjson.JSON;
 import com.netflix.hystrix.exception.HystrixBadRequestException;
 import feign.Response;
 import feign.Util;
@@ -15,13 +16,9 @@ public class BusinessErrorDecoder implements ErrorDecoder {
     public Exception decode(String methodKey, Response response) {
         Exception exception = null;
         try {
-            Util.toString(response.body().asReader());
+            ErrorMessageInfo messageInfo = JSON.parseObject(Util.toString(response.body().asReader()),ErrorMessageInfo.class);
             // 这里只封装4开头的请求异常
-            if (400 <= response.status() && response.status() < 500){
-                exception = new HystrixBadRequestException("request exception wrapper", exception);
-            }else{
-                log.error(exception.getMessage(), exception);
-            }
+            exception = new HystrixBadRequestException(messageInfo.getMessage(), exception);
         } catch (IOException ex) {
             log.error(ex.getMessage(), ex);
         }
