@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class Result extends BaseResponse {
 
-    private String message;
-
     public Result() {
 
     }
