@@ -13,7 +13,6 @@ public class FeignBasicRequestInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-
         String token = httpServletRequest.getHeader("accessToken");
         if (!StringUtils.isEmpty(token)){
             requestTemplate.header("accessToken",httpServletRequest.getHeader("accessToken"));

@@ -15,16 +15,9 @@ import java.util.Date;
  * 创建时间 2017年11月24日
  */
 public class JwtUtils {
+
 	/**
 	 * 签发JWT
-	 * @Author  科帮网 
-	 * @param id
-	 * @param subject 可以是JSON数据 尽可能少
-	 * @param ttlMillis
-	 * @return  String
-	 * @Date	2017年11月24日
-	 * 2017年11月24日  张志朋  首次创建
-	 *
 	 */
 	public static String createJWT(String id, String subject, long ttlMillis) {
 		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
